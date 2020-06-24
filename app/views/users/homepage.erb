@@ -3,14 +3,19 @@
 <label><h2>Your favorites rides list!</h2></label>
 <ul>
     <% @favorites.each do |favorite| %>
-        <li><%=favorite.ride.name%></li>
+        <li><a href= "/rides/<%=favorite.ride.slug%>"><%=favorite.ride.name%></a></li>
     <%end%>
 </ul>
 
-
-<p><a href="/favorites/new">Create Your List</a></p>
+<% if @favorites.length == 0 %>
+    <p><a href="/favorites/new">Create Your List</a></p>
+<% else %>
+    <p><a href="/favorites/edit">Edit Your Favorites List</a></p>
+<% end%>
 <p><a href="/reviews">See Reviews</a></p>
 <p><a href="/rides">See Rides List</a></p>
+
+
 
 
 

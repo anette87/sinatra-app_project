@@ -13,5 +13,13 @@ class Ride < ActiveRecord::Base
         end.uniq  #when using map use .uniq in the closing end as end.uniq 
     end
 
+    def slug
+        name.tr(" ", "-")
+    end
+    
+    def self.find_by_slug(slug)
+          self.find_by(name: slug.tr("-"," "))
+    end 
+
 end
 

@@ -4,4 +4,9 @@ class User < ActiveRecord::Base
     has_many :rides, through: :reviews
     has_many :favorites 
 
+
+    
+
+
+
 end
