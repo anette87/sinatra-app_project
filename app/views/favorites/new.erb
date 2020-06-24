@@ -1,0 +1,17 @@
+<h1>Select your favorites rides:</h1> 
+
+<form action="/favorites" method="post">
+<% @locations.each do |location|%>
+<h3><li><%=location%></li></h3>
+<% rides = Helpers.rides_by_land(location)%>
+<% rides.each do |ride|%>
+<input type="checkbox" name="rides[]" value="<%= ride.id %>"><%= ride.name %></input></label><br>
+<%end%>
+<%end%>
+
+<input type="submit" value="Create Your Favorites">
+
+</form>
+
+
+

@@ -1,0 +1,30 @@
+<h1><%= "Welcome, #{Helpers.current_user(session).username}" %></h1>
+
+<label><h2>Your favorites rides list!</h2></label>
+<ul>
+    <% @favorites.each do |favorite| %>
+        <li><%=favorite.ride.name%></li>
+    <%end%>
+</ul>
+
+
+<p><a href="/favorites/new">Create Your List</a></p>
+<p><a href="/reviews">See Reviews</a></p>
+<p><a href="/rides">See Rides List</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a href="/logout">Log Out</a></p>
