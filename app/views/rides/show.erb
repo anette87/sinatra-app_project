@@ -1,16 +1,18 @@
 
-<h1><%=@ride.name%></h1>
+<h1><%=@ride.name%></h1><br>
 
-<h2><%="Location: #{@ride.location}"%></h2>
-<h3><%="Description: #{@ride.description}"%></h2>
+<h3><%="Location: #{@ride.location}"%></h3><br>
+<h3><%="Description: #{@ride.description}"%></h3><br>
 
-<h1>Reviews:</h2>
+<h2>Reviews:</h2>
 <% @ride.reviews.each do |review| %>
-<li><a href="/reviews/<%= review.id %>"><%= review.title %></a></li>
+<li><a href="/reviews/<%= review.id %>"><%= review.title %></a></li><br>
 <%end%>
 
-
+<p></p>
+<p></p>
 <p><a href="/rides/<%= @ride.slug %>/reviews/new">Add Review</a></p>
+<p><a href="/rides">Back to Rides</a></p>
 
 
 

@@ -1,14 +1,13 @@
 class ReviewsController < ApplicationController
 
-    get '/reviews' do
-        @reviews = Review.all 
-
-        erb :"reviews/reviews"
-    end
     
     get '/rides/:slug/reviews/new' do
-        @ride = Ride.find_by_slug(params[:slug])
-        erb :'reviews/new'
+        if !logged_in?
+            redirect "/login"
+        else
+            @ride = Ride.find_by_slug(params[:slug])
+            erb :'reviews/new'
+        end
     end
 
     
@@ -18,7 +17,7 @@ class ReviewsController < ApplicationController
         if review.save 
             redirect "/reviews/#{review.id}"
         else
-            redirect "/reviews/#{ride.slug}/new"
+            redirect "/rides/#{ride.slug}/reviews/new"
         end
     end
     
@@ -31,7 +30,6 @@ class ReviewsController < ApplicationController
         end
     end
 
-    
     
     get '/reviews/:id/edit' do
         if !logged_in?
