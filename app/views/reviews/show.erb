@@ -1,0 +1,12 @@
+<h3><%=@review.title%></h3>
+<p><%="By: #{@review.user.username}"%></p>
+<p><%=@review.content%></p>
+
+<%  if @review.user_id == session[:user_id] %> 
+<p><a href="/reviews/<%= @review.id %>/edit">Edit Review</a></p>
+<form action="/reviews/<%=@review.id%>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Review">
+  </form>
+<% end %> 
+<p><a href="/rides">Back to Rides</a></p>

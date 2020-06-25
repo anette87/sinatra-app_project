@@ -4,8 +4,13 @@
 <h2><%="Location: #{@ride.location}"%></h2>
 <h3><%="Description: #{@ride.description}"%></h2>
 
+<h1>Reviews:</h2>
+<% @ride.reviews.each do |review| %>
+<li><a href="/reviews/<%= review.id %>"><%= review.title %></a></li>
+<%end%>
 
-<p><a href="/reviews/<%= @ride.slug %>/new">Add Review</a></p>
-<p><a href="/reviews/<%= @ride.id %>">See Reviews</a></p>
+
+<p><a href="/rides/<%= @ride.slug %>/reviews/new">Add Review</a></p>
+
 
 

@@ -1,0 +1,11 @@
+<h1>Update Review</h1>
+
+  <form action="/reviews/<%= @review.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <h3>Edit Review Title:<input type="text" name="title" value="<%= @review.title %>"></h3>
+    <h3><label>Edit Review Content:</label></h3>
+    <textarea name="content" rows="15" cols="50"><%=@review.content%></textarea>
+    <input type="submit" name="submit" id="submit">
+  </form>
+
+        
