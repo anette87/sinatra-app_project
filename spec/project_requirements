@@ -7,5 +7,5 @@
 [x]Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user.
 [x]Ensure that users can edit and delete only their own resources - not resources created by other users.
 [x]Validate user input so bad data cannot be persisted to the database.
-[]Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+[x]Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 [x]Your app does NOT break if I go to unexpected URLs. It should redirect or show a 404 or 401 page!!
