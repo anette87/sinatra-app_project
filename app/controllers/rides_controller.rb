@@ -1,7 +1,7 @@
 class RidesController < ApplicationController
 
     get '/rides' do
-        @locations = Ride.locations
+        @locations = Location.all
         erb :"rides/rides"    
     end
     

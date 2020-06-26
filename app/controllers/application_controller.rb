@@ -7,6 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "password_security"
+    set :show_exceptions, false 
   end
 
   get "/" do
@@ -18,23 +19,15 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/signup' do
-    if logged_in?
-         redirect "/"
-    else  
-        erb :"users/signup"
-    end 
-end
+  not_found do
+    status 404
+    erb :error
+  end
 
-post '/signup' do
-    user = User.new(username: params[:username], email: params[:email], password: params[:password])
-    if user.save
-        session[:user_id] = user.id 
-        redirect "/"
-    else
-        redirect "/signup"
-    end
-end
+  error ActiveRecord::RecordNotFound do 
+    redirect to '/'
+  end 
+
 
 helpers do
   def logged_in?

@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
 
   get '/favorites/new' do
-    @locations = Ride.locations  
+    @locations = Location.all  
     erb :"favorites/new"
   end
 
@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
   end 
   
   get '/favorites/edit' do
-    @locations = Ride.locations
+    @locations = Location.all
     @favorites = Favorite.where(user_id: session[:user_id]) 
     
     erb :"favorites/edit"

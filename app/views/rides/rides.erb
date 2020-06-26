@@ -1,8 +1,8 @@
 <h1>Select a ride:</h1> 
 <% @locations.each do |location|%>
-<h3><li><%=location%></li></h3>
-<% rides = Helpers.rides_by_land(location)%>
-<% rides.each do |ride|%>
+<h3><li><%=location.name%></li></h3>
+<% rides =  location.rides  %>
+<% rides.each do |ride| %>
 <li><a href= "/rides/<%=ride.slug%>"><%= ride.name%></a></li> <!-- add the slug method to the |ride| -->
 <% end %>
 <% end %>

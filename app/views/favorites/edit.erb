@@ -3,9 +3,9 @@
     <h1>Edit Favorites Rides:<h1>
     <h3>Rides:</h3>
     <% @locations.each do |location|%>
-    <h3><li><%=location%></li></h3>
-    <% rides = Helpers.rides_by_land(location)%>
-    <% rides.each do |ride|%>
+    <h3><li><%=location.name%></li></h3>
+    <% rides =  location.rides  %>
+    <% rides.each do |ride| %>
     <input type="checkbox" name="rides[]" value="<%= ride.id %>"
         <%@favorites.each do |favorite|%>
             <%= 'checked' if ride.id == favorite.ride_id %>      
