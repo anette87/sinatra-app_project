@@ -1,8 +1,11 @@
 class RidesController < ApplicationController
 
     get '/rides' do
-        @locations = Location.all
-        erb :"rides/rides"    
+        if !logged_in?
+            redirect "/login"
+        else 
+            @locations = Location.all
+            erb :"rides/rides"    
     end
     
     get '/rides/:slug' do

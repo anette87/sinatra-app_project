@@ -3,6 +3,7 @@ class Ride < ActiveRecord::Base
     has_many :favorites
     belongs_to :location 
 
+
     def slug
         name.tr(" ", "-")
     end
