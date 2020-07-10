@@ -5,7 +5,8 @@ class RidesController < ApplicationController
             redirect "/login"
         else 
             @locations = Location.all
-            erb :"rides/rides"    
+            erb :"rides/rides"
+        end    
     end
     
     get '/rides/:slug' do
